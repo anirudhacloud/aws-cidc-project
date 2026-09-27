@@ -1,7 +1,13 @@
 terraform {
+  backend "s3" {
+    bucket = "anirudha-terraform-state-2026"
+    key    = "aws-cicd/terraform.tfstate"
+    region = "ap-south-1"
+  }
+
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
     }
   }
 }
