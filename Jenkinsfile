@@ -2,9 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage('Terraform Init') {
             steps {
-                echo 'Jenkins CI/CD is working!'
+                bat 'terraform init'
+            }
+        }
+
+        stage('Terraform Validate') {
+            steps {
+                bat 'terraform validate'
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                bat 'terraform plan'
             }
         }
     }
