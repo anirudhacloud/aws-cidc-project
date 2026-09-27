@@ -17,12 +17,12 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 bat 'terraform plan'
+            }
+        }
 
-stage('Terraform Apply') {
-    steps {
-        bat 'terraform apply -auto-approve'
-    }
-}
+        stage('Terraform Apply') {
+            steps {
+                bat 'terraform apply -auto-approve'
             }
         }
     }
